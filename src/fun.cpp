@@ -2,5 +2,5 @@
 #include "iostream"
 
 int fun() {
-    std::cout << "fun in" << std::endl;
+    std::cout << "fun.cpp in" << std::endl;
 }

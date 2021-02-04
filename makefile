@@ -1,6 +1,17 @@
-start:
-	g++ -c src/HelloWorld.cpp -I ./include/
-	g++ -c src/fun.cpp -I ./include/
-	g++ -o exe HelloWorld.o fun.o
+CP=g++
+
+SRCS=src/HelloWorld.cpp \
+	src/fun.cpp
+
+OBJS=$(SRCS:.cpp=.o)
+
+EXEC=exe
+
+start:HelloWorld.o fun.o
+	$(CP) -o $(EXEC) $(OBJS)
+
+.cpp.o:
+	$(CP) -o $@ -c $< -I ../include/
+
 clean:
-	rm -rf HelloWorld.o fun.o
+	rm -rf $(OBJS)
